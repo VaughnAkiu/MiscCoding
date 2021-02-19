@@ -12,13 +12,16 @@ public class RomanToInteger {
         public static void convertString(String s){
             for(int i = 0; i < s.length(); i++)
             {
+                //check for special cases
                 if(s.charAt(i) == 'I')
                 {
-                    //check for special cases
+                    //special case 1
+                    //make sure not checking a null value
                     if(i+1 < s.length() & s.charAt(i+1) == 'V') {
                         romanValue = romanValue + 4;
                         i++; //increment past the next character since we are accounting for it here
                     }
+                    //special case 2
                     else if (i+1 < s.length() & s.charAt(i+1) == 'X')
                     {
                         romanValue = romanValue + 9;
@@ -26,10 +29,12 @@ public class RomanToInteger {
                     }
                     else{romanValue++;} //there is no special case
                 }
+                //no special cases for V
                 else if(s.charAt(i) == 'V')
                 {
                     romanValue = romanValue + 5;
                 }
+                //check special cases for XL and XC
                 else if(s.charAt(i) == 'X')
                 {
                     romanValue = romanValue + 10;
@@ -44,7 +49,7 @@ public class RomanToInteger {
 
 
 
-
+        //make test cases eventually
         public static void main(String[] args) {
             convertString(s);
 
