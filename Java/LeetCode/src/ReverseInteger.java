@@ -1,9 +1,11 @@
 public class ReverseInteger
 {
-    static int input = 54321379;
+    static int input = -123465;
     static int output = 0;
+    static boolean wasNegative = false;
 
     //solution 1
+    //check if int is negative value, if it is use special case conversion
     //convert int to string
     //store string into char array
     //reverse order of char array
@@ -11,6 +13,12 @@ public class ReverseInteger
     //convert string into int
     public static int reverseInt(int input)
     {
+        //check if int is negative value, if it is use special case conversion
+        if(input < 0)
+        {
+            input = input * -1;
+            wasNegative = true;
+        }
         //convert int to string
         String s = String.valueOf(input);
         //store string in char array in reverse order
@@ -27,6 +35,12 @@ public class ReverseInteger
 
         //convert string to int
         output = Integer.parseInt(s);
+
+        //check wasNegative, if true then convert to negative
+        if(wasNegative)
+        {
+            output = output * -1;
+        }
 
         return output;
     }
