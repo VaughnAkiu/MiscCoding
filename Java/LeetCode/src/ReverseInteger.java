@@ -1,6 +1,6 @@
 public class ReverseInteger
 {
-    static int input = 123;
+    static int input = 54321379;
     static int output = 0;
 
     //solution 1
@@ -13,12 +13,20 @@ public class ReverseInteger
     {
         //convert int to string
         String s = String.valueOf(input);
-        //store string in char array
+        //store string in char array in reverse order
         char[] c = new char[s.length()];
-        for(int i = 0; i < s.length(); i++)
+        int charPosition = 0; //stores current position of char to help store in reverse order
+        //loop starts at end of string
+        for(int i = s.length() - 1; i >= 0; i--)
         {
-            c[i] = s.charAt(i);
+            c[charPosition] = s.charAt(i);
+            charPosition++;
         }
+        //convert char array to string
+        s = String.valueOf(c);
+
+        //convert string to int
+        output = Integer.parseInt(s);
 
         return output;
     }
