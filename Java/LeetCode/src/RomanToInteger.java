@@ -1,35 +1,15 @@
 public class RomanToInteger {
 
 
-        static String s = "XIV";
+        static String s = "XXIV";
         static int romanValue = 0; //placeholder to hold roman numeral value
         static int result;
 
         //convert string to numerals
-        public static void convertString(String s){
-            for(int i = 0; i < s.length(); i++)
-            {
-                if(s.charAt(i) == 'I')
-                {
-                    romanValue++;
-                }
-                else if(s.charAt(i) == 'V')
-                {
-                    romanValue = romanValue + 5;
-                }
-                else if(s.charAt(i) == 'X')
-                {
-                    romanValue = romanValue + 10;
-                }
-            }
-            result = romanValue;
-        }
-
         //check special cases
         //such as IV, IX, XL, etc...
         //check next character as well, if combination of these values then adjust to corresponding value
-        public static void specialCase(String s)
-        {
+        public static void convertString(String s){
             for(int i = 0; i < s.length(); i++)
             {
                 if(s.charAt(i) == 'I')
@@ -46,8 +26,23 @@ public class RomanToInteger {
                     }
                     else{romanValue++;} //there is no special case
                 }
+                else if(s.charAt(i) == 'V')
+                {
+                    romanValue = romanValue + 5;
+                }
+                else if(s.charAt(i) == 'X')
+                {
+                    romanValue = romanValue + 10;
+                }
+                else if(s.charAt(i) == 'L')
+                {
+                    romanValue = romanValue + 50;
+                }
             }
+            result = romanValue;
         }
+
+
 
 
         public static void main(String[] args) {
