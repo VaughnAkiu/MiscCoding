@@ -1,5 +1,7 @@
 public class ReverseInteger
 {
+    //cannot store above 32 bit integer
+    //-2^31 <= x <= 2^31 - 1;  If reversing x causes the value to go outside the signed 32-bit integer range , then return 0.
     static int input = -123465;
     static int output = 0;
     static boolean wasNegative = false;
