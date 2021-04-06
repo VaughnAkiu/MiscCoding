@@ -18,6 +18,7 @@ public class BinaryTreeLevelOrderTraversal
       //input is formatted root = [1,2,3,null,null,6,7,etc]
     //output should be formatted [[1],[2,3],[6,7]]
       //first value is always root
+    //print all nodes level by level, starting from root each time
 
     //print array
     public static void printNode(int[] node)
@@ -27,6 +28,36 @@ public class BinaryTreeLevelOrderTraversal
             System.out.println(node[i]);
         }
     }
+
+    //find the height of the tree
+    public static int height(TreeNode root)
+    {
+
+        if (root == null)
+        {
+            return 0;
+        }
+        else
+        {
+            //compute height of each subtree
+            //use recursion to recurse through all nodes of tree
+            int lHeight = height(root.left);
+            int rHeight = height(root.right);
+
+            //use the larger of the left or right side heights
+            if (lHeight > rHeight)
+            {
+                return (lHeight + 1);
+            }
+            else
+            {
+                return (rHeight + 1);
+            }
+        }
+    }
+
+
+
 
     public static void main(String[] args)
     {
