@@ -114,9 +114,25 @@ FROM
 INNER JOIN transactions
   ON customers.id = transactions.customerId
   
+
+-- 
+-- 
+-- 
+-- 
+-- 
+-- 
+CREATE TABLE movies (
+	id INTEGER NOT NULL PRIMARY KEY,
+	title VARCHAR(50) NOT NULL,
+	category VARCHAR(15) NOT NULL);
   
-  
-  
-  
+CREATE TABLE members (
+	id INTEGER NOT NULL REFERENCES movies(id),	
+	first_name VARCHAR(15) NOT NULL,
+	last_name VARCHAR(15) NOT NULL,
+	movie_id INTEGER NOT NULL);
+
+INSERT INTO movies(id, title, category) VALUES(1, ASSASINS CREED EMBERS, Animations);
+INSERT INTO members(id, first_name, last_name, movie_id) VALUES(1, Adam, Smith, 1);
   
   
