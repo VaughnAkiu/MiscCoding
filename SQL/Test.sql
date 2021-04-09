@@ -136,3 +136,21 @@ INSERT INTO movies(id, title, category) VALUES(1, ASSASINS CREED EMBERS, Animati
 INSERT INTO members(id, first_name, last_name, movie_id) VALUES(1, Adam, Smith, 1);
   
   
+  --all rows from both tables
+  --Cross JOIN mathces each row from one database table to all rows from another
+  SELECT * FROM 'movies' CROSS JOIN 'members'
+  
+  --inner JOIN return rows from both tables that satisfy given condition
+  --get a list of members who have rented movies together with titles of movies rented by them
+  SELECT members.'first_name', members.'last_name', movies.'title'
+  FROM members, movies
+  WHERE movies.'id' = members.'movie_id'
+  
+  --outer JOIN returns all records matching from both tables, it can return records having no match in joined table, will return NULL values for records of joined table if no match is found
+  --Left JOIN returns all rows from table on left even if no matching rows are found on right table, wherever no matches are found on right table NULL is instead returned
+  --get titles of all movies together with names of members who have rented them, if movie has not been rented by anyone return NULL
+  SELECT A.'title', B.'first_name', B.'last_name'
+  FROM 'movies' AS A
+  LEFT JOIN 'members' AS B
+  ON B.'movie_id' = A.'id'
+  
