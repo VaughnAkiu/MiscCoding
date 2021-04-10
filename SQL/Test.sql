@@ -153,4 +153,12 @@ INSERT INTO members(id, first_name, last_name, movie_id) VALUES(1, Adam, Smith, 
   FROM 'movies' AS A
   LEFT JOIN 'members' AS B
   ON B.'movie_id' = A.'id'
+  --ON and USING, match records between tables, USING requires identical names for matched columns
+  --alter table to be able to use USING
+  ALTER TABLE 'movies' CHANGE 'id' 'movie_id' INT(11) NOT NULL AUTO_INCREMENT;
+  --can now use USING instead of ON
+  SELECT A.'title', B.'first_name', B.'last_name'
+  FROM 'movies' AS A
+  LEFT JOIN 'members' AS B
+  USING ('movie_id')
   
