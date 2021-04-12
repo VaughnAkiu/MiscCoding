@@ -162,3 +162,11 @@ INSERT INTO members(id, first_name, last_name, movie_id) VALUES(1, Adam, Smith, 
   LEFT JOIN 'members' AS B
   USING ('movie_id')
   
+  
+  --VIEWS , virtual tables that do not store any data of their own but display data stored in other tables
+  CREATE VIEW 'view_name' AS SELECT statement;
+  
+  --create a view that restritcts columns seen
+  CREATE VIEW  'account_v_members' AS SELECT 'membership_number','full_names','gender' FROM 'members';
+  
+  
