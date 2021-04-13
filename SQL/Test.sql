@@ -167,6 +167,15 @@ INSERT INTO members(id, first_name, last_name, movie_id) VALUES(1, Adam, Smith, 
   CREATE VIEW 'view_name' AS SELECT statement;
   
   --create a view that restritcts columns seen
-  CREATE VIEW  'account_v_members' AS SELECT 'membership_number','full_names','gender' FROM 'members';
+  CREATE VIEW  `account_v_members` AS SELECT `membership_number`,`full_names`,`gender` FROM `members`;
+  
+  --JOIN to get information from 3 different tables
+  CREATE VIEW `general_v_movie_rentals` AS SELECT mb.`membership_number`,mb.`full_names`,mo.`title`,mr.`transaction_date`,mr.`return_date` 
+  FROM `movierentals` 
+  AS mr INNER JOIN `members` AS mb ON mr.`membership_number` = mb.`membership_number` INNER JOIN `movies` AS mo ON mr.`movie_id` = mo.`movie_id`;
+  
+  --delete a view from database
+  DROP VIEW `general_v_movie_rentals` ;
+  
   
   
