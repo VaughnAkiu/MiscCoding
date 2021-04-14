@@ -177,5 +177,12 @@ INSERT INTO members(id, first_name, last_name, movie_id) VALUES(1, Adam, Smith, 
   --delete a view from database
   DROP VIEW `general_v_movie_rentals` ;
   
+  --PL/SQL beginnings
+  DECLARE
+	message varchar2(20) := 'Hello, World!';
+	BEGIN
+		dbms_output.put_line(message);
+	END;
+  
   
   
