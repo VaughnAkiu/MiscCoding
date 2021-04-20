@@ -196,6 +196,12 @@ INSERT INTO members(id, first_name, last_name, movie_id) VALUES(1, Adam, Smith, 
   INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY)
   VALUES(1,'Lors',32,'Darush',1920.00);
   
+  
+  --COmparison operators
+  --LIKE , BETWEEN , IN, IS NULL
+  --Operator Precedence
+  -- exponentation > identity, negation > multiplication, division > addition, subtraction, concatenation > NOT > AND > OR
+  
 
   
   
