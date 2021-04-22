@@ -201,7 +201,19 @@ INSERT INTO members(id, first_name, last_name, movie_id) VALUES(1, Adam, Smith, 
   --LIKE , BETWEEN , IN, IS NULL
   --Operator Precedence
   -- exponentation > identity, negation > multiplication, division > addition, subtraction, concatenation > NOT > AND > OR
-  
+  --pl/sql loops
+  DECLARE
+  i number(1);
+  j number(1);
+  BEGIN
+  <<outer_loop>>
+  FOR i IN 1..3 LOOP
+	<<inner_loop>>
+	FOR j IN 1..3 LOOP
+		dbms_output.put_line();
+	END loop inner_loop;
+  END loop outer_loop;
+END;
 
   
   
